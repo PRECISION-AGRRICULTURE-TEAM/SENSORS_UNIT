@@ -1,3 +1,16 @@
+# keil
+*.axf
+*.htm
+*.crf
+*.lst
+*.lnp
+*.uvproj
+*.dep
+*.uvgui*
+*.uvopt*
+*.bak
+
+
 # Prerequisites
 *.d
 
