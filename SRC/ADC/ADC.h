@@ -51,7 +51,7 @@ void ADC_vidStartConversion();
  *  poll  on this function to know if the conversion has ended
  *
  *  @param 
- *  @return Void
+ *  @return status of the conversion
  */ 
 uint8_t ADC_u8ConversionStatus();
 
@@ -60,7 +60,7 @@ uint8_t ADC_u8ConversionStatus();
  *  use this function after you checked that the conversion has ended
  *
  *  @param 
- *  @return Void
+ *  @return ADC Register value
  */ 
 uint16_t ADC_u16GetData();
 
