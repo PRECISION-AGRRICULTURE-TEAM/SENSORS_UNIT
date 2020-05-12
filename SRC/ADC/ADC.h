@@ -41,7 +41,7 @@ void ADC_vidSelect(uint8_t u8ADCNum);
  *  use this function to start conversion on the ADC pin
  *  selected by ADC_vidSelect()
  *
- *  @param  u8ADCNum the ADC num to select
+ *  @param 
  *  @return Void
  */ 
 void ADC_vidStartConversion();
@@ -50,7 +50,7 @@ void ADC_vidStartConversion();
  *  
  *  poll  on this function to know if the conversion has ended
  *
- *  @param  u8ADCNum the ADC num to select
+ *  @param 
  *  @return Void
  */ 
 uint8_t ADC_u8ConversionStatus();
@@ -59,10 +59,10 @@ uint8_t ADC_u8ConversionStatus();
  *  
  *  use this function after you checked that the conversion has ended
  *
- *  @param  u8ADCNum the ADC num to select
+ *  @param 
  *  @return Void
  */ 
-uint16_t ADC_u16GetData(void);
+uint16_t ADC_u16GetData();
 
 
 
