@@ -14,7 +14,7 @@
  *  @param 
  *  @return Void
  */
-void MOISTURE_vidInit (void){}
+void MOISTURE_vidInit (void);
 
 /** @brief  Read analog value from MOISTURE pin.
  *
@@ -24,7 +24,7 @@ void MOISTURE_vidInit (void){}
  *  @param 
  *  @return the analog value on the Sensor
  */ 
-uint16_t MOISTURE_u16Read(){}
+uint16_t MOISTURE_u16Read();
 
 /** @brief  start reading of the sensor value
  *  
@@ -32,7 +32,7 @@ uint16_t MOISTURE_u16Read(){}
  *  @param 
  *  @return Void
  */ 
-void MOISTURE_vidStartReading(){}
+void MOISTURE_vidStartReading();
 
 /** @brief  Check the status of the reading process
  *  
@@ -42,7 +42,7 @@ void MOISTURE_vidStartReading(){}
  *  @return the reading status
  */ 
  
-uint8_t MOISTURE_u8ReadingStatus(){}
+uint8_t MOISTURE_u8ReadingStatus();
 
 /** @brief  Read the value of the last read sensor value
  *  
@@ -51,7 +51,7 @@ uint8_t MOISTURE_u8ReadingStatus(){}
  *  @param  
  *  @return The last read sensor values
  */ 
-uint16_t MOISTURE_u16GetData(void){}
+uint16_t MOISTURE_u16GetData(void);
 
 
 #endif /* MOISTURE_H_ */
