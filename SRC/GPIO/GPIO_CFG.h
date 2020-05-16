@@ -10,41 +10,54 @@
 #ifndef GPIO_CFG_H_
 #define GPIO_CFG_H_
 
-// the return values of function
+/**@brief the return values of function */
 enum GPIO_STATUS{
-  ERROR = 0,
-  SUCCESS=1
+  /** Error state*/    	ERROR = 0,
+  /** Success state*/  	SUCCESS=1
 };
 
-// the values of pins in reading and writing
+/**@brief the values of pins in reading and writing */
 enum GPIO_DATA{
-  LOW    =0,  HIGH  =1,
+  /** Low Voltage */ 	LOW    =0,
+  /** High Voltage */ 	HIGH   =1,
   GPIO_DATA_ERROR
 };
 
-// the values of pins' directions
+/**@brief the values of pins' directions/mode*/
 enum GPIO_PIN_DIR{
+  /** Analog pin */
   ANALOG=0X00,
+  /** Output pin with push-pull */
   OUTPUT_PUSHPULL=0X01,
+  /** input  pin open drain*/
   INPUT=0X04,
+  /** ouput  pin open drain*/
   OUTPUT=0X05,
+  /** input  pin with pulldown*/
   INPUT_PULLDOWN=0X08,
+  /** Alternative function pin with push-pull*/
   AF_PUSHPULL=0X09,
+  /** Alternative function pin open drain*/
   AF=0X0D,
+  /** input  pin with pullup*/
   INPUT_PULLUP=0X18,
   GPIO_PIN_DIR_MAX
 };
 
-// the port names
+/**@brief the port names*/
 enum GPIO_PORT_NAMES{
+  /** PORT A */
   PORT_A = 0,
+  /** PORT B */
   PORT_B = 1,
+  /** PORT C */
   PORT_C = 2,
+  /** PORT D */
   PORT_D = 3,
   PORT_MAX
 };
 
-// the values of pins' names
+/**@brief the values of pins' names*/
 enum GPIO_PINS {
   PORTA_0 = 0,PORTA_1 = 1,PORTA_2 = 2,PORTA_3 = 3,PORTA_4 = 4,PORTA_5 = 5,PORTA_6 = 6,PORTA_7 = 7,
   PORTA_8 = 8,PORTA_9 = 9,PORTA_10=10,PORTA_11=11,PORTA_12=12,PORTA_13=13,PORTA_14=14,PORTA_15=15,
