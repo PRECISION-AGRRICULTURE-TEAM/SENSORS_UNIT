@@ -10,14 +10,21 @@ typedef struct {
 	uint16_t 	  MOISTURE;
 	DHT11_Data_t  DHT11_DATA;
 } APP_DATA_t;
+struct STATUS {
+	uint8_t TEMP_STATUS:1;
+	uint8_t MOIST_STATUS:1;
+	uint8_t DHT11_STATUS:1;
+	uint8_t SEND_REQUEST:1;
+}SENSOR_STATUS ={0,0,0,1};
 
-APP_DATA_t APP_DATA_CURRENT;
+
 enum APP_STATE{
 	APP_STATE_INIT =0,
 	APP_STATE_TEMP,
 	APP_STATE_MOIST,
 	APP_STATE_DHT11,
 	APP_STATE_SEND,
+	APP_STATE_WAIT,
 	APP_STATE_MAX
 };
 enum APP_INIT_STATE{
@@ -48,6 +55,20 @@ enum APP_DHT11_STATE{
 	APP_DHT11_STATE_MAX
 
 };
+enum APP_WAIT_STATE{
+	APP_WAIT_STATE_TEMP =0,
+	APP_WAIT_STATE_MOIST,
+	APP_WAIT_STATE_DHT11,
+	APP_WAIT_STATE_SEND,
+	APP_WAIT_STATE_MAX
+
+};
+
+
+static APP_DATA_t APP_DATA_CURRENT;
+static uint8_t APP_WAIT_STATE_CURRENT = APP_WAIT_STATE_MAX;
+
+
 static uint8_t APP_STATE_CURRENT = 	APP_STATE_MAX;
 
 static void APP_vidInitTask()
@@ -70,7 +91,7 @@ static void APP_vidInitTask()
 	case APP_INIT_STATE_WIFI :
 
 		APP_INIT_STATE_CURRENT = APP_INIT_STATE_MAX;
-		APP_STATE_CURRENT = APP_STATE_TEMP;
+		APP_STATE_CURRENT = APP_STATE_WAIT;
 		break;
 	default:
 		break;
@@ -95,7 +116,8 @@ static void APP_vidTempTask()
 	case APP_TEMP_STATE_READ :
 		APP_DATA_CURRENT.SOIL_TEMP = SOIL_TEMP_u16GetData();
 		APP_TEMP_STATE_CURRENT = APP_TEMP_STATE_START;
-		APP_STATE_CURRENT = APP_STATE_MOIST;
+		APP_STATE_CURRENT = APP_STATE_WAIT;
+		SENSOR_STATUS.TEMP_STATUS=1;
 		break;
 	default :
 		break;
@@ -121,7 +143,8 @@ static void APP_vidMoistTask()
 	case APP_MOIST_STATE_READ :
 		APP_DATA_CURRENT.MOISTURE = MOISTURE_u16GetData();
 		APP_MOIST_STATE_CURRENT = APP_MOIST_STATE_START;
-		APP_STATE_CURRENT = APP_STATE_DHT11;
+		APP_STATE_CURRENT = APP_STATE_WAIT;
+		SENSOR_STATUS.MOIST_STATUS=1;
 		break;
 	default :
 		break;
@@ -131,26 +154,27 @@ static void APP_vidMoistTask()
 static void APP_vidDHT11Task()
 {
 	static uint8_t APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_START;
-		switch (APP_DHT11_STATE_CURRENT)
+	switch (APP_DHT11_STATE_CURRENT)
+	{
+	case APP_DHT11_STATE_START :
+		DHT11_vidStartReading();
+		APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_WAIT;
+		break;
+	case APP_DHT11_STATE_WAIT :
+		if (DHT11_u8ReadingStatus())
 		{
-		case APP_DHT11_STATE_START :
-			DHT11_vidStartReading();
-			APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_WAIT;
-			break;
-		case APP_DHT11_STATE_WAIT :
-			if (DHT11_u8ReadingStatus())
-			{
-				APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_READ;
-			}
-			break;
-		case APP_DHT11_STATE_READ :
-			APP_DATA_CURRENT.DHT11_DATA = DHT11_D11GetData();
-			APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_START;
-			APP_STATE_CURRENT = APP_STATE_SEND;
-			break;
-		default :
-			break;
+			APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_READ;
 		}
+		break;
+	case APP_DHT11_STATE_READ :
+		APP_DATA_CURRENT.DHT11_DATA = DHT11_D11GetData();
+		APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_START;
+		APP_STATE_CURRENT = APP_STATE_WAIT;
+		SENSOR_STATUS.DHT11_STATUS=1;
+		break;
+	default :
+		break;
+	}
 }
 
 static void APP_vidSendTask()
@@ -159,11 +183,83 @@ static void APP_vidSendTask()
 }
 
 
+
+static void APP_vidWaitTask()
+{
+	switch (APP_WAIT_STATE_CURRENT)
+	{
+	case APP_WAIT_STATE_TEMP :
+		if (SENSOR_STATUS.TEMP_STATUS)
+		{
+			APP_STATE_CURRENT = APP_STATE_TEMP;
+		}
+		else
+		{
+			APP_WAIT_STATE_CURRENT = APP_WAIT_STATE_MOIST;
+		}
+		break ;
+	case APP_WAIT_STATE_MOIST :
+		if (SENSOR_STATUS.MOIST_STATUS)
+		{
+			APP_STATE_CURRENT = APP_STATE_MOIST;
+		}
+		else
+		{
+			APP_WAIT_STATE_CURRENT = APP_WAIT_STATE_DHT11;
+		}
+		break ;
+	case APP_WAIT_STATE_DHT11 :
+		if (SENSOR_STATUS.DHT11_STATUS)
+		{
+			APP_STATE_CURRENT = APP_STATE_DHT11;
+		}
+		else
+		{
+			APP_WAIT_STATE_CURRENT = APP_WAIT_STATE_SEND;
+		}
+		break ;
+	case APP_WAIT_STATE_SEND :
+		if (SENSOR_STATUS.SEND_REQUEST)
+		{
+			APP_STATE_CURRENT = APP_STATE_SEND;
+		}
+		else
+		{
+			APP_WAIT_STATE_CURRENT = APP_WAIT_STATE_MAX;
+		}
+		break ;
+	default:
+		break;
+	}
+}
+
+
 void APP_vidInit ()
 {
 	APP_STATE_CURRENT = APP_STATE_INIT;
 }
-
+void APP_vidSend()
+{
+	SENSOR_STATUS.SEND_REQUEST=1;
+}
+void APP_vidUpdate()
+{
+	SENSOR_STATUS.DHT11_STATUS=0;
+	SENSOR_STATUS.TEMP_STATUS=0;
+	SENSOR_STATUS.MOIST_STATUS=0;
+}
+void APP_vidUpdateTEMP()
+{
+	SENSOR_STATUS.TEMP_STATUS=0;
+}
+void APP_vidUpdateDHT11()
+{
+	SENSOR_STATUS.DHT11_STATUS=0;
+}
+void APP_vidUpdateMOIST()
+{
+	SENSOR_STATUS.MOIST_STATUS=0;
+}
 void APP_vidTask ()
 {
 	switch (APP_STATE_CURRENT)
@@ -182,6 +278,9 @@ void APP_vidTask ()
 		break;
 	case APP_STATE_SEND  :
 		APP_vidSendTask();
+		break;
+	case APP_STATE_WAIT:
+		APP_vidWaitTask();
 		break;
 	default :
 		break;
