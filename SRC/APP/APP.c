@@ -5,3 +5,185 @@
 
 #include "APP_LOCAL.h"
 
+typedef struct {
+	uint16_t      SOIL_TEMP;
+	uint16_t 	  MOISTURE;
+	DHT11_Data_t  DHT11_DATA;
+} APP_DATA_t;
+
+APP_DATA_t APP_DATA_CURRENT;
+enum APP_STATE{
+	APP_STATE_INIT =0,
+	APP_STATE_TEMP,
+	APP_STATE_MOIST,
+	APP_STATE_DHT11,
+	APP_STATE_SEND,
+	APP_STATE_MAX
+};
+enum APP_INIT_STATE{
+	APP_INIT_STATE_TEMP =0,
+	APP_INIT_STATE_DHT11,
+	APP_INIT_STATE_MOIST,
+	APP_INIT_STATE_WIFI,
+	APP_INIT_STATE_MAX
+};
+enum APP_TEMP_STATE{
+	APP_TEMP_STATE_START =0,
+	APP_TEMP_STATE_WAIT,
+	APP_TEMP_STATE_READ,
+	APP_TEMP_STATE_MAX
+
+};
+enum APP_MOIST_STATE{
+	APP_MOIST_STATE_START =0,
+	APP_MOIST_STATE_WAIT,
+	APP_MOIST_STATE_READ,
+	APP_MOIST_STATE_MAX
+
+};
+enum APP_DHT11_STATE{
+	APP_DHT11_STATE_START =0,
+	APP_DHT11_STATE_WAIT,
+	APP_DHT11_STATE_READ,
+	APP_DHT11_STATE_MAX
+
+};
+static uint8_t APP_STATE_CURRENT = 	APP_STATE_MAX;
+
+static void APP_vidInitTask()
+{
+	static uint8_t APP_INIT_STATE_CURRENT = APP_INIT_STATE_TEMP;
+	switch (APP_INIT_STATE_CURRENT)
+	{
+	case APP_INIT_STATE_TEMP :
+		SOIL_TEMP_vidInit();
+		APP_INIT_STATE_CURRENT = APP_INIT_STATE_DHT11 ;
+		break;
+	case APP_INIT_STATE_DHT11 :
+		DHT11_vidInit();
+		APP_INIT_STATE_CURRENT = APP_INIT_STATE_MOIST;
+		break;
+	case APP_INIT_STATE_MOIST :
+		MOISTURE_vidInit();
+		APP_INIT_STATE_CURRENT = APP_INIT_STATE_WIFI ;
+		break;
+	case APP_INIT_STATE_WIFI :
+
+		APP_INIT_STATE_CURRENT = APP_INIT_STATE_MAX;
+		APP_STATE_CURRENT = APP_STATE_TEMP;
+		break;
+	default:
+		break;
+	}
+}
+
+static void APP_vidTempTask()
+{
+	static uint8_t APP_TEMP_STATE_CURRENT = APP_TEMP_STATE_START;
+	switch (APP_TEMP_STATE_CURRENT)
+	{
+	case APP_TEMP_STATE_START :
+		SOIL_TEMP_vidStartReading();
+		APP_TEMP_STATE_CURRENT = APP_TEMP_STATE_WAIT;
+		break;
+	case APP_TEMP_STATE_WAIT :
+		if (SOIL_TEMP_u8ReadingStatus())
+		{
+			APP_TEMP_STATE_CURRENT = APP_TEMP_STATE_READ;
+		}
+		break;
+	case APP_TEMP_STATE_READ :
+		APP_DATA_CURRENT.SOIL_TEMP = SOIL_TEMP_u16GetData();
+		APP_TEMP_STATE_CURRENT = APP_TEMP_STATE_START;
+		APP_STATE_CURRENT = APP_STATE_MOIST;
+		break;
+	default :
+		break;
+	}
+
+}
+
+static void APP_vidMoistTask()
+{
+	static uint8_t APP_MOIST_STATE_CURRENT = APP_MOIST_STATE_START;
+	switch (APP_MOIST_STATE_CURRENT)
+	{
+	case APP_MOIST_STATE_START :
+		MOISTURE_vidStartReading();
+		APP_MOIST_STATE_CURRENT = APP_MOIST_STATE_WAIT;
+		break;
+	case APP_MOIST_STATE_WAIT :
+		if (MOISTURE_u8ReadingStatus())
+		{
+			APP_MOIST_STATE_CURRENT = APP_MOIST_STATE_READ;
+		}
+		break;
+	case APP_MOIST_STATE_READ :
+		APP_DATA_CURRENT.MOISTURE = MOISTURE_u16GetData();
+		APP_MOIST_STATE_CURRENT = APP_MOIST_STATE_START;
+		APP_STATE_CURRENT = APP_STATE_DHT11;
+		break;
+	default :
+		break;
+	}
+}
+
+static void APP_vidDHT11Task()
+{
+	static uint8_t APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_START;
+		switch (APP_DHT11_STATE_CURRENT)
+		{
+		case APP_DHT11_STATE_START :
+			DHT11_vidStartReading();
+			APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_WAIT;
+			break;
+		case APP_DHT11_STATE_WAIT :
+			if (DHT11_u8ReadingStatus())
+			{
+				APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_READ;
+			}
+			break;
+		case APP_DHT11_STATE_READ :
+			APP_DATA_CURRENT.DHT11_DATA = DHT11_D11GetData();
+			APP_DHT11_STATE_CURRENT = APP_DHT11_STATE_START;
+			APP_STATE_CURRENT = APP_STATE_SEND;
+			break;
+		default :
+			break;
+		}
+}
+
+static void APP_vidSendTask()
+{
+
+}
+
+
+void APP_vidInit ()
+{
+	APP_STATE_CURRENT = APP_STATE_INIT;
+}
+
+void APP_vidTask ()
+{
+	switch (APP_STATE_CURRENT)
+	{
+	case APP_STATE_INIT :
+		APP_vidInitTask();
+		break;
+	case APP_STATE_TEMP :
+		APP_vidTempTask();
+		break;
+	case APP_STATE_MOIST :
+		APP_vidMoistTask();
+		break;
+	case APP_STATE_DHT11 :
+		APP_vidDHT11Task();
+		break;
+	case APP_STATE_SEND  :
+		APP_vidSendTask();
+		break;
+	default :
+		break;
+	}
+}

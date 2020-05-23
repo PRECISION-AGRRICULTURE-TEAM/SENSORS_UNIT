@@ -8,6 +8,9 @@
 
 #include "../COMMON/Std_Types.h"
 #include "../COMMON/Utils.h"
+#include "../DHT11/DHT11.h"
+#include "../MOISTURE/MOISTURE.h"
+#include "../SOIL_TEMP/SOIL_TEMP.h"
 #include "APP_CFG.h"
 
 

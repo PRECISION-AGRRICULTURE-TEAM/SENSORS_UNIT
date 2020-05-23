@@ -6,6 +6,7 @@
 #define APP_H_
 
 #include "APP_CFG.h"
-
+void APP_vidInit ();
+void APP_vidTask ();
 
 #endif /* APP_H_ */
