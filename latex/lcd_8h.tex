@@ -1,0 +1,121 @@
+\hypertarget{lcd_8h}{}\doxysection{F\+:/\+Career/\+I\+T\+I/\+I\+TI wireless track 2019 Ismailia/\+Interfacing/\+Projects/\+U\+S\+A\+R\+T/lcd.h File Reference}
+\label{lcd_8h}\index{F:/Career/ITI/ITI wireless track 2019 Ismailia/Interfacing/Projects/USART/lcd.h@{F:/Career/ITI/ITI wireless track 2019 Ismailia/Interfacing/Projects/USART/lcd.h}}
+{\ttfamily \#include \char`\"{}Std\+\_\+\+Types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+I\+O.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}T\+I\+M\+E\+R0.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lcd_8h_af3277d5ded7d667cf1ac49ee17dc3ad1}{H\+I\+G\+H\+\_\+\+S\+T\+A\+TE}}~0
+\item 
+\#define \mbox{\hyperlink{lcd_8h_a398e91a6f07a57789359ebd2d1afd9db}{L\+O\+W\+\_\+\+S\+T\+A\+TE}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8}{L\+C\+D\+State}} \{ \mbox{\hyperlink{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8a3797b4b41062237d293a5c5df3326bff}{S\+T\+A\+T\+E1}} =0, 
+\mbox{\hyperlink{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8af507266ea41bee5d8b799611b715d38d}{S\+T\+A\+T\+E2}} =1, 
+\mbox{\hyperlink{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8afd19bc4d96f5a767f6454a4db2974101}{S\+T\+A\+T\+E3}} =2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lcd_8h_abc4efab7496d765ee1b70142f2c685df}{L\+C\+D\+\_\+vid\+Write\+Command}} (\mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8\+Command)
+\item 
+void \mbox{\hyperlink{lcd_8h_a65a479fb9446a6c12195361f6c640225}{L\+C\+D\+\_\+vid\+Write\+Data}} (\mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} u8\+Data)
+\item 
+void \mbox{\hyperlink{lcd_8h_ad5775eeb3e57fc9604ca3df9d4c1e59f}{L\+C\+D\+\_\+vid\+Init}} ()
+\item 
+void \mbox{\hyperlink{lcd_8h_aa83794494e420b8702e5edcc7a2b1e75}{L\+C\+D\+\_\+vid\+Writ\+String}} (\mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} $\ast$string)
+\item 
+void \mbox{\hyperlink{lcd_8h_ade12e2a80f2584fcbdcef285920bc964}{L\+C\+D\+\_\+\+Main\+Function}} (void)
+\item 
+void \mbox{\hyperlink{lcd_8h_a28a740653f7959be9407720a9a956d44}{L\+C\+D\+\_\+\+Main\+High\+State}} ()
+\item 
+void \mbox{\hyperlink{lcd_8h_a87a28df8b83925245156ae122b90d77d}{L\+C\+D\+\_\+\+Main\+Low\+State}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lcd_8h_af3277d5ded7d667cf1ac49ee17dc3ad1}\label{lcd_8h_af3277d5ded7d667cf1ac49ee17dc3ad1}} 
+\index{lcd.h@{lcd.h}!HIGH\_STATE@{HIGH\_STATE}}
+\index{HIGH\_STATE@{HIGH\_STATE}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{HIGH\_STATE}{HIGH\_STATE}}
+{\footnotesize\ttfamily \#define H\+I\+G\+H\+\_\+\+S\+T\+A\+TE~0}
+
+\mbox{\Hypertarget{lcd_8h_a398e91a6f07a57789359ebd2d1afd9db}\label{lcd_8h_a398e91a6f07a57789359ebd2d1afd9db}} 
+\index{lcd.h@{lcd.h}!LOW\_STATE@{LOW\_STATE}}
+\index{LOW\_STATE@{LOW\_STATE}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LOW\_STATE}{LOW\_STATE}}
+{\footnotesize\ttfamily \#define L\+O\+W\+\_\+\+S\+T\+A\+TE~1}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8}\label{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8}} 
+\index{lcd.h@{lcd.h}!LCDState@{LCDState}}
+\index{LCDState@{LCDState}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCDState}{LCDState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8}{L\+C\+D\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE1@{STATE1}!lcd.h@{lcd.h}}\index{lcd.h@{lcd.h}!STATE1@{STATE1}}}\mbox{\Hypertarget{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8a3797b4b41062237d293a5c5df3326bff}\label{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8a3797b4b41062237d293a5c5df3326bff}} 
+S\+T\+A\+T\+E1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE2@{STATE2}!lcd.h@{lcd.h}}\index{lcd.h@{lcd.h}!STATE2@{STATE2}}}\mbox{\Hypertarget{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8af507266ea41bee5d8b799611b715d38d}\label{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8af507266ea41bee5d8b799611b715d38d}} 
+S\+T\+A\+T\+E2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE3@{STATE3}!lcd.h@{lcd.h}}\index{lcd.h@{lcd.h}!STATE3@{STATE3}}}\mbox{\Hypertarget{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8afd19bc4d96f5a767f6454a4db2974101}\label{lcd_8h_a6c22466faf5a78f9e99d87a27a5b53f8afd19bc4d96f5a767f6454a4db2974101}} 
+S\+T\+A\+T\+E3&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{lcd_8h_ade12e2a80f2584fcbdcef285920bc964}\label{lcd_8h_ade12e2a80f2584fcbdcef285920bc964}} 
+\index{lcd.h@{lcd.h}!LCD\_MainFunction@{LCD\_MainFunction}}
+\index{LCD\_MainFunction@{LCD\_MainFunction}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_MainFunction()}{LCD\_MainFunction()}}
+{\footnotesize\ttfamily void L\+C\+D\+\_\+\+Main\+Function (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lcd_8h_a28a740653f7959be9407720a9a956d44}\label{lcd_8h_a28a740653f7959be9407720a9a956d44}} 
+\index{lcd.h@{lcd.h}!LCD\_MainHighState@{LCD\_MainHighState}}
+\index{LCD\_MainHighState@{LCD\_MainHighState}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_MainHighState()}{LCD\_MainHighState()}}
+{\footnotesize\ttfamily void L\+C\+D\+\_\+\+Main\+High\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lcd_8h_a87a28df8b83925245156ae122b90d77d}\label{lcd_8h_a87a28df8b83925245156ae122b90d77d}} 
+\index{lcd.h@{lcd.h}!LCD\_MainLowState@{LCD\_MainLowState}}
+\index{LCD\_MainLowState@{LCD\_MainLowState}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_MainLowState()}{LCD\_MainLowState()}}
+{\footnotesize\ttfamily void L\+C\+D\+\_\+\+Main\+Low\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lcd_8h_ad5775eeb3e57fc9604ca3df9d4c1e59f}\label{lcd_8h_ad5775eeb3e57fc9604ca3df9d4c1e59f}} 
+\index{lcd.h@{lcd.h}!LCD\_vidInit@{LCD\_vidInit}}
+\index{LCD\_vidInit@{LCD\_vidInit}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_vidInit()}{LCD\_vidInit()}}
+{\footnotesize\ttfamily void L\+C\+D\+\_\+vid\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lcd_8h_abc4efab7496d765ee1b70142f2c685df}\label{lcd_8h_abc4efab7496d765ee1b70142f2c685df}} 
+\index{lcd.h@{lcd.h}!LCD\_vidWriteCommand@{LCD\_vidWriteCommand}}
+\index{LCD\_vidWriteCommand@{LCD\_vidWriteCommand}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_vidWriteCommand()}{LCD\_vidWriteCommand()}}
+{\footnotesize\ttfamily void L\+C\+D\+\_\+vid\+Write\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8\+Command }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lcd_8h_a65a479fb9446a6c12195361f6c640225}\label{lcd_8h_a65a479fb9446a6c12195361f6c640225}} 
+\index{lcd.h@{lcd.h}!LCD\_vidWriteData@{LCD\_vidWriteData}}
+\index{LCD\_vidWriteData@{LCD\_vidWriteData}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_vidWriteData()}{LCD\_vidWriteData()}}
+{\footnotesize\ttfamily void L\+C\+D\+\_\+vid\+Write\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{u8\+Data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lcd_8h_aa83794494e420b8702e5edcc7a2b1e75}\label{lcd_8h_aa83794494e420b8702e5edcc7a2b1e75}} 
+\index{lcd.h@{lcd.h}!LCD\_vidWritString@{LCD\_vidWritString}}
+\index{LCD\_vidWritString@{LCD\_vidWritString}!lcd.h@{lcd.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_vidWritString()}{LCD\_vidWritString()}}
+{\footnotesize\ttfamily void L\+C\+D\+\_\+vid\+Writ\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} $\ast$}]{string }\end{DoxyParamCaption})}
+

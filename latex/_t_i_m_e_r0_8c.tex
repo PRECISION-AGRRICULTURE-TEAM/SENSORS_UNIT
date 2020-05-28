@@ -1,0 +1,79 @@
+\hypertarget{_t_i_m_e_r0_8c}{}\doxysection{F\+:/\+Career/\+I\+T\+I/\+I\+TI wireless track 2019 Ismailia/\+Interfacing/\+Projects/\+U\+S\+A\+R\+T/\+T\+I\+M\+E\+R0.c File Reference}
+\label{_t_i_m_e_r0_8c}\index{F:/Career/ITI/ITI wireless track 2019 Ismailia/Interfacing/Projects/USART/TIMER0.c@{F:/Career/ITI/ITI wireless track 2019 Ismailia/Interfacing/Projects/USART/TIMER0.c}}
+{\ttfamily \#include \char`\"{}T\+I\+M\+E\+R0.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_t_i_m_e_r0_8c_af59a8baf809988828d624d13417cdac1}{timer0\+\_\+vid\+Init}} (\mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} clk\+Value, \mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} mode, \mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}} comp\+Value)
+\item 
+void \mbox{\hyperlink{_t_i_m_e_r0_8c_ad0ebd52b3c069df4a1dcf0e405f278e9}{timer0\+\_\+vid\+Delay\+Ms}} (\mbox{\hyperlink{_std___types_8h_a2e00abb078d312d1d8c4fbcd6be343d8}{uint16}} ms\+Time)
+\item 
+void \mbox{\hyperlink{_t_i_m_e_r0_8c_adafca88a3b27cb0e7c09544452aa0e01}{timer0\+\_\+vid\+Int\+Ms}} ()
+\item 
+void \mbox{\hyperlink{_t_i_m_e_r0_8c_a3087f6e033fed8804ed49bd673bc0ed3}{Timer0\+\_\+vid\+Set\+Call\+Back}} (void($\ast$Call\+Back)(void))
+\item 
+void \mbox{\hyperlink{_t_i_m_e_r0_8c_a74a0792c79b400c05d89ba6fccc8cd44}{\+\_\+\+\_\+vector\+\_\+10}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_std___types_8h_a9560e25c315bae45d1ed4e2ce49ce55a}{uint32}} \mbox{\hyperlink{_t_i_m_e_r0_8c_a8d7b07210f0174f6aa997fb46db8c661}{counter}} =0
+\item 
+void($\ast$ \mbox{\hyperlink{_t_i_m_e_r0_8c_ae96bcf77ed10d7a52fa855b0a029be02}{Timer\+\_\+vid\+Call\+Back\+\_\+\+Ptr}} )(void)
+\item 
+\mbox{\hyperlink{_std___types_8h_a2e00abb078d312d1d8c4fbcd6be343d8}{uint16}} \mbox{\hyperlink{_t_i_m_e_r0_8c_af585116465f35867ab44f221f1f4200e}{i}} =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_t_i_m_e_r0_8c_a74a0792c79b400c05d89ba6fccc8cd44}\label{_t_i_m_e_r0_8c_a74a0792c79b400c05d89ba6fccc8cd44}} 
+\index{TIMER0.c@{TIMER0.c}!\_\_vector\_10@{\_\_vector\_10}}
+\index{\_\_vector\_10@{\_\_vector\_10}!TIMER0.c@{TIMER0.c}}
+\doxysubsubsection{\texorpdfstring{\_\_vector\_10()}{\_\_vector\_10()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+vector\+\_\+10 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_t_i_m_e_r0_8c_ad0ebd52b3c069df4a1dcf0e405f278e9}\label{_t_i_m_e_r0_8c_ad0ebd52b3c069df4a1dcf0e405f278e9}} 
+\index{TIMER0.c@{TIMER0.c}!timer0\_vidDelayMs@{timer0\_vidDelayMs}}
+\index{timer0\_vidDelayMs@{timer0\_vidDelayMs}!TIMER0.c@{TIMER0.c}}
+\doxysubsubsection{\texorpdfstring{timer0\_vidDelayMs()}{timer0\_vidDelayMs()}}
+{\footnotesize\ttfamily void timer0\+\_\+vid\+Delay\+Ms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_std___types_8h_a2e00abb078d312d1d8c4fbcd6be343d8}{uint16}}}]{ms\+Time }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_t_i_m_e_r0_8c_af59a8baf809988828d624d13417cdac1}\label{_t_i_m_e_r0_8c_af59a8baf809988828d624d13417cdac1}} 
+\index{TIMER0.c@{TIMER0.c}!timer0\_vidInit@{timer0\_vidInit}}
+\index{timer0\_vidInit@{timer0\_vidInit}!TIMER0.c@{TIMER0.c}}
+\doxysubsubsection{\texorpdfstring{timer0\_vidInit()}{timer0\_vidInit()}}
+{\footnotesize\ttfamily void timer0\+\_\+vid\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{clk\+Value,  }\item[{\mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{mode,  }\item[{\mbox{\hyperlink{_std___types_8h_adde6aaee8457bee49c2a92621fe22b79}{uint8}}}]{comp\+Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_t_i_m_e_r0_8c_adafca88a3b27cb0e7c09544452aa0e01}\label{_t_i_m_e_r0_8c_adafca88a3b27cb0e7c09544452aa0e01}} 
+\index{TIMER0.c@{TIMER0.c}!timer0\_vidIntMs@{timer0\_vidIntMs}}
+\index{timer0\_vidIntMs@{timer0\_vidIntMs}!TIMER0.c@{TIMER0.c}}
+\doxysubsubsection{\texorpdfstring{timer0\_vidIntMs()}{timer0\_vidIntMs()}}
+{\footnotesize\ttfamily void timer0\+\_\+vid\+Int\+Ms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_t_i_m_e_r0_8c_a3087f6e033fed8804ed49bd673bc0ed3}\label{_t_i_m_e_r0_8c_a3087f6e033fed8804ed49bd673bc0ed3}} 
+\index{TIMER0.c@{TIMER0.c}!Timer0\_vidSetCallBack@{Timer0\_vidSetCallBack}}
+\index{Timer0\_vidSetCallBack@{Timer0\_vidSetCallBack}!TIMER0.c@{TIMER0.c}}
+\doxysubsubsection{\texorpdfstring{Timer0\_vidSetCallBack()}{Timer0\_vidSetCallBack()}}
+{\footnotesize\ttfamily void Timer0\+\_\+vid\+Set\+Call\+Back (\begin{DoxyParamCaption}\item[{void($\ast$)(void)}]{Call\+Back }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_t_i_m_e_r0_8c_a8d7b07210f0174f6aa997fb46db8c661}\label{_t_i_m_e_r0_8c_a8d7b07210f0174f6aa997fb46db8c661}} 
+\index{TIMER0.c@{TIMER0.c}!counter@{counter}}
+\index{counter@{counter}!TIMER0.c@{TIMER0.c}}
+\doxysubsubsection{\texorpdfstring{counter}{counter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_std___types_8h_a9560e25c315bae45d1ed4e2ce49ce55a}{uint32}} counter =0}
+
+\mbox{\Hypertarget{_t_i_m_e_r0_8c_af585116465f35867ab44f221f1f4200e}\label{_t_i_m_e_r0_8c_af585116465f35867ab44f221f1f4200e}} 
+\index{TIMER0.c@{TIMER0.c}!i@{i}}
+\index{i@{i}!TIMER0.c@{TIMER0.c}}
+\doxysubsubsection{\texorpdfstring{i}{i}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_std___types_8h_a2e00abb078d312d1d8c4fbcd6be343d8}{uint16}} i =0}
+
+\mbox{\Hypertarget{_t_i_m_e_r0_8c_ae96bcf77ed10d7a52fa855b0a029be02}\label{_t_i_m_e_r0_8c_ae96bcf77ed10d7a52fa855b0a029be02}} 
+\index{TIMER0.c@{TIMER0.c}!Timer\_vidCallBack\_Ptr@{Timer\_vidCallBack\_Ptr}}
+\index{Timer\_vidCallBack\_Ptr@{Timer\_vidCallBack\_Ptr}!TIMER0.c@{TIMER0.c}}
+\doxysubsubsection{\texorpdfstring{Timer\_vidCallBack\_Ptr}{Timer\_vidCallBack\_Ptr}}
+{\footnotesize\ttfamily void($\ast$ Timer\+\_\+vid\+Call\+Back\+\_\+\+Ptr) (void)}
+
