@@ -5,7 +5,38 @@
 #ifndef ADC_H_
 #define ADC_H_
 
-#include "ADC_CFG.h"
+#include "stm32f10x.h"
+#include "GPIO_Driver.h"
+#define freq_ADC (RCC->CFGR|=RCC_CFGR_ADCPRE_DIV6)
+#define SAMPOS_BIT0 (SAMPOS[u8ADCNum])
+#define SAMPOS_BIT1 (SAMPOS[u8ADCNum]+1)
+#define SAMPOS_BIT2 (SAMPOS[u8ADCNum]+2)
+
+
+
+
+
+
+
+#define  ADC_PRES_DIV2                ((uint32_t)0x00000000)        /*!< PCLK2 divided by 2 */
+#define  ADC_PRES_DIV4                ((uint32_t)0x00004000)        /*!< PCLK2 divided by 4 */
+#define  ADC_PRES_DIV6                ((uint32_t)0x00008000)        /*!< PCLK2 divided by 6 */
+#define  ADC_PRES_DIV8                ((uint32_t)0x0000C000)        /*!< PCLK2 divided by 8 */
+
+
+
+
+
+
+
+
+#define ADC_ON  	0x01
+#define ADC_CONT 	0x02
+#define ADC_CAL 	0x04
+#define END_CONV 	0x02
+#define ADC_DONE 	0x01
+
+
 
 /** @brief  ADC Initialization function
  *
@@ -24,7 +55,7 @@ void ADC_vidInit (void);
  *  @return the analog value on the pin
  */
  
-uint16_t ADC_u16Read(uint8_t u8ADCNum);
+//uint16_t ADC_u16Read(uint8_t u8ADCNum);
 
 
 /** @brief  Select the ADC pin to be read from
