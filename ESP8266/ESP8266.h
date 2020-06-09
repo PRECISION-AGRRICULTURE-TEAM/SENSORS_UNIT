@@ -27,6 +27,10 @@ struct ESP_INIT_PARAM
 uint8 mode ; // station mode
 uint8 SSID [20] ;
 uint8 PASSWORD [20];
+char getRequest[210] ;
+char host[60];
+uint8 port;
+char ConnectionType[4];
 };
 /*@brief
  *
@@ -49,10 +53,57 @@ enum
 	noOption =255,
 	ok=1,
 	error=2,
-	timeout=3,
-	querey =4,
-	noQuerey =5
 };
+
+ enum
+{
+	Wait = 0,
+	Connected =1,
+	NotConnected =7
+}ESPNetwork;
+
+
+ enum
+{
+	ListenWait = 0,
+	Found =1,
+	Timeout =2
+}ESPListen;
+
+enum ESP_STATUS
+{
+	CONNECTED_TO_AP=2,
+	TRANSMISSION_CONNECTED,
+	TRANSMISSION_DISCONNECTED,
+	NOT_CONNECTED_TO_AP,
+	UNKNOWN_ERROR
+};
+
+
+
+/*@brief
+ *
+ * Used to Initialize Esp and set it's Mode to
+ * ( 1, Station ) , ( 2, Access point) , ( 3, Access point and Station)
+ *
+ *
+ *@return ( 1 ,Configuration is Done) ( 0, Wait)
+ * */
+uint8 ESP8266_Init();
+
+/*@brief
+ *
+ * Used to check Esp Status
+ * Example : STATUS = 2 >> Esp is connected to Access Point
+ * Example : STATUS = 3 >> Esp is Connected to transmission channel
+ * Example : STATUS = 4 >> Esp is not Connected to transmission channel
+ * Example : STATUS = 5 >> Esp is not connected to Access point.
+ *
+ *
+ *@return STATUS ( (2,CONNECTED_TO_AP) , (3,TRANSMISSION_CONNECTED) ,(4  TRANSMISSION_DISCONNECTED ),(5 ,UNKNOWN_ERROR ) ,( 7 ,NotConnected >> TimeOut Error))
+ * */
+
+enum  ESP_STATUS ESP8266_u8CheckStatues ();
 /*@brief
  *
  *Used to send Commands to Esp
@@ -60,66 +111,82 @@ enum
  *@param command: Command to send Ex ( AT, AT+SIFR, AT+CIPSEND ...)
  *@param option : in case command has options Ex ( AT+CWMODE=1 )..(1 .. is Option for the command (AT+CWMODE)
  *@param  query : in case command with querey Ex ( AT+CWMODE=? )
+ *@return void
  * */
-void ESP8266_vidSendCommand(uint8 * command,uint8 option,uint8 query);
+void ESP8266_vidSendCommand(uint8 * command);
 /*@brief
  *
  *Used to Join to Network with Defined SSID and Password in structure "ESP_INIT_PARAM"
  *
+ *@return ( 0 Wait), ( 1 Connected ), (7 NotConnected >> Timeout error)
  * */
-void ESP_vidJoinNetwork ();
+uint8 ESP_vidJoinNetwork ();
 /*@brief
  *
  *Used to Check IP State. prints the IPs if there are any.
- *
+ *@return ( 0 Wait), ( 1 Done )
+
  * */
-void ESP_vidCheckForIP();
+uint8 ESP_vidCheckForIP();
 /*@brief
  *
- *Used to Listen to the ESP UART bus for Specified word
+ * Used to Listen to the ESP UART bus for Specified word
+ * Example ESP8266_vidListen("OK",5, 500);
+ * The function will wait for "OK" to show up before 500 tick happens
+ * if OK is found it will fetch it with another 3 characters after it,
+ * else if 500 ticks happens before it found it will return a time out error
  *
  *@param wordToFind : word to search for at ESP UART bus
- *
+ *@param sizeOfStringToFetch : Size of string to fetch
+ *@param timeOut : time in tick which after it the timeout error will show up
+ *@return ( 0 Wait), ( 1 Found ), (2 Timeout >> Timeout error)
  * */
-uint8 ESP8266_vidListen(uint8 * wordToFind);
+uint8 ESP8266_vidListen(uint8 * wordToFind,uint8 sizeOfStringToFetch, uint16 timeOut );
 /*@brief
  *
- *Used to Create a server
+ * Used to Create a server on the port declared in param structure
  *
- *@param port : port for the server
+ *@return ( 1 , Ok >> Server created successfully ) ,( 0 , Wait)
  *
  * */
-uint8 ESP8266_vidCreateServer( uint8 port);
+uint8 ESP8266_u8CreateServer( );
 /*@brief
  *
  *Used to check for connection request ( usually by browsers accessing IP address of the ESP )
  *
+ *@return ( 1 , Found >> Connection Request found ) ,( 0 , Wait),(2, Timeout >> timeout error)
  * */
-uint8 ESP8266_vidCheckForConnectionRequest();
+uint8 ESP8266_u8CheckForConnectionRequest();
 /*@brief
  *
- *Used to open a connection.
- *must be used after a connection request.
- *opens a window with a specified number of characters
+ * Used to open a connection to a host with a specified Connection type ( TCP,UDP)
+ * to host on a port defined in param structure
  *
  *@param dataSize : number of data to be sent
  *
  * */
-uint8 ESP8266_vidOpenConnection(uint16 dataSize);
+uint8 ESP8266_u8ConnectToHost();
+
+
 /*@brief
  *
- *Used to send data to an opened connection with same number of characters requested before
+ * Used to send Get Request defined in Param structure to an opened connection
  *
- *@param Data : string to be send through connection
  *
+ *
+ *@return ( 1 , DataSent >> Connection created ) ,( 0 , Wait),(7,NotConnected >> Timeout error)
  * */
-uint8 ESP8266_vidSendDataToOpendConnection(uint8 * Data);
+uint8 ESP8266_u8SendGETDataToOpendConnection();
+
+
 /*@brief
  *
- *Used to close opend connection
- *
+ *Used to close opened connection
+ *@return ( 1 , Ok >> Connection closed ) ,( 0 , Wait)
  * */
 uint8 ESP8266_vidCloseConnection();
+
+
 /*@brief
  *
  *Example demonstrating using of ESP8266 driver APIs
