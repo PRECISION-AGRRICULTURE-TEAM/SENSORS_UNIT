@@ -47,13 +47,13 @@ enum GPIO_PIN_DIR{
 /**@brief the port names*/
 enum GPIO_PORT_NAMES{
   /** PORT A */
-  PORT_A = 0,
+  PORTA = 0,
   /** PORT B */
-  PORT_B = 1,
+  PORTB = 1,
   /** PORT C */
-  PORT_C = 2,
+  PORTC = 2,
   /** PORT D */
-  PORT_D = 3,
+  PORTD = 3,
   PORT_MAX
 };
 
@@ -69,5 +69,31 @@ enum GPIO_PINS {
   PORTD_8 =56,PORTD_9 =57,PORTD_10=58,PORTD_11=59,PORTD_12=60,PORTD_13=61,PORTD_14=62,PORTD_15=63,
   GPIO_PINS_MAX
 };
+
+
+#define EXTI0_MASK		1
+#define EXTI0_LINE		PORTA
+#define EXTI0_RISING	1
+#define EXTI0_FALLING	1
+
+#define EXTI1_MASK		1
+#define EXTI1_LINE		PORTA
+#define EXTI1_RISING	1
+#define EXTI1_FALLING	1
+
+#define EXTI2_MASK		1
+#define EXTI2_LINE		PORTA
+#define EXTI2_RISING	1
+#define EXTI2_FALLING	1
+
+#define EXTI3_MASK		1
+#define EXTI3_LINE		PORTA
+#define EXTI3_RISING	1
+#define EXTI3_FALLING	1
+
+#define EXTI4_MASK		1
+#define EXTI4_LINE		PORTA
+#define EXTI4_RISING	1
+#define EXTI4_FALLING	1
 
 #endif /* GPIO_CFG_H_ */

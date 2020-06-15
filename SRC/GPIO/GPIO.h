@@ -9,7 +9,7 @@
 
 #ifndef GPIO_H_
 #define GPIO_H_
-#include "../COMMON/Std_Types.h"
+
 #include "GPIO_CFG.h"
 /** @brief  GPIO Initialization function
  *

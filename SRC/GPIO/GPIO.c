@@ -10,12 +10,17 @@
 
 
 #include "GPIO_LOCAL.h"
-#include "GPIO.h"
 
 void GPIO_vidInit (void)
 {
     //GPIO Initialization function
 
+
+	EXTI->IMR=(EXTI0_MASK <<0)|(EXTI1_MASK <<1)|(EXTI2_MASK <<2)|(EXTI3_MASK <<3)|(EXTI4_MASK <<4);
+	EXTI->RTSR=(EXTI0_RISING <<0)|(EXTI1_RISING <<1)|(EXTI2_RISING <<2)|(EXTI3_RISING <<3)|(EXTI4_RISING <<4);
+	EXTI->FTSR=(EXTI0_FALLING <<0)|(EXTI1_FALLING <<1)|(EXTI2_FALLING <<2)|(EXTI3_FALLING <<3)|(EXTI4_FALLING <<4);
+	AFIO->EXTICR1=(EXTI0_LINE <<0)|(EXTI1_LINE <<4)|(EXTI2_LINE <<8)|(EXTI3_LINE <<12);
+	AFIO->EXTICR2=(EXTI4_LINE <<0);
 }
 
 uint8_t GPIO_u8SetPinDir (uint8_t u8PinNum , uint8_t u8Dir)
@@ -29,7 +34,7 @@ uint8_t GPIO_u8SetPinDir (uint8_t u8PinNum , uint8_t u8Dir)
     // calculating the port no.
     switch(u8PinNum/16)
     {
-    case PORT_A : //PORTA   
+    case PORTA : //PORTA
       Set_Bit (RCC_APB2ENR , 2);
       if(u8PinNum % 16 <=7)
       {
@@ -46,7 +51,7 @@ uint8_t GPIO_u8SetPinDir (uint8_t u8PinNum , uint8_t u8Dir)
         GPIOA->ODR|=(1<<u8PinNum%16);
       }
       break;
-    case PORT_B : //PORTB
+    case PORTB : //PORTB
       Set_Bit (RCC_APB2ENR , 3);
       if(u8PinNum % 16 <=7)
       {
@@ -63,7 +68,7 @@ uint8_t GPIO_u8SetPinDir (uint8_t u8PinNum , uint8_t u8Dir)
         GPIOB->ODR|=(1<<u8PinNum%16);
       }
       break;
-    case PORT_C : //PORTC
+    case PORTC : //PORTC
       Set_Bit (RCC_APB2ENR , 4);
       if(u8PinNum % 16 <=7)
       {
@@ -80,7 +85,7 @@ uint8_t GPIO_u8SetPinDir (uint8_t u8PinNum , uint8_t u8Dir)
         GPIOC->ODR|=(1<<u8PinNum%16);
       }
       break;
-    case PORT_D : //PORTD
+    case PORTD : //PORTD
       Set_Bit (RCC_APB2ENR , 5);
       if(u8PinNum % 16 <=7)
       {
@@ -124,19 +129,19 @@ uint8_t GPIO_u8WritePin (uint8_t u8PinNum , uint8_t u8Data)
     // calculating the port no.
     switch(u8PinNum/16)
     {
-    case PORT_A : //PORTA
+    case PORTA : //PORTA
       // Write pin values
       Assign_Bit(GPIOA->ODR ,u8PinNum % 16, u8Data );
       break;
-    case PORT_B : //PORTB
+    case PORTB : //PORTB
       // Write pin values
       Assign_Bit(GPIOB->ODR ,u8PinNum % 16, u8Data );
       break;
-    case PORT_C : //PORTC
+    case PORTC : //PORTC
       // Write pin values
       Assign_Bit(GPIOC->ODR ,u8PinNum % 16, u8Data );
       break;
-    case PORT_D : //PORTD
+    case PORTD : //PORTD
       // Write pin values
       Assign_Bit(GPIOD->ODR ,u8PinNum % 16, u8Data );
       break;
@@ -162,19 +167,19 @@ uint8_t GPIO_u8ReadPin (uint8_t u8PinNum )
     // calculating the port no.
     switch(u8PinNum/8)
     {
-    case PORT_A : //PORTA
+    case PORTA : //PORTA
       //Read from pin
       u8Data= Get_Bit(GPIOA->IDR ,u8PinNum % 16);
       break;
-    case PORT_B : //PORTB
+    case PORTB : //PORTB
       //Read from pin
       u8Data= Get_Bit(GPIOB->IDR ,u8PinNum % 16);
       break;
-    case PORT_C : //PORTC
+    case PORTC : //PORTC
       //Read from pin
       u8Data= Get_Bit(GPIOC->IDR ,u8PinNum % 16);
       break;
-    case PORT_D : //PORTD
+    case PORTD : //PORTD
       //Read from pin
       u8Data= Get_Bit(GPIOD->IDR ,u8PinNum % 16);
       break;
@@ -185,3 +190,71 @@ uint8_t GPIO_u8ReadPin (uint8_t u8PinNum )
   }
   return u8Data;
 }
+
+
+
+void GPIO_vidEnableInt(uint8_t u8IntNum)
+{
+	if (u8IntNum<5)
+	{
+		NVIC_ISER0 = (1<<6+u8IntNum);
+	}
+}
+void GPIO_vidDisableInt(uint8_t u8IntNum)
+{
+	if (u8IntNum<5)
+	{
+		NVIC_ICER0 = (1<<6+u8IntNum);
+	}
+//	switch (u8IntNum)
+//	{
+//	case 0:
+//		NVIC_ICER0 = (1<<6);
+//		break;
+//	case 1:
+//		NVIC_ICER0 = (1<<7);
+//		break;
+//	case 2:
+//		NVIC_ICER0 = (1<<8);
+//		break;
+//	case 3:
+//		NVIC_ICER0 = (1<<9);
+//		break;
+//	case 4:
+//		NVIC_ICER0 = (1<<10);
+//		break;
+//	default:
+//		break;
+//	}
+
+}
+
+
+
+
+void EXTI0_IRQHandler (void)
+{
+	EXTI->PR=1;
+
+}
+void EXTI1_IRQHandler (void)
+{
+	EXTI->PR=2;
+
+}
+void EXTI2_IRQHandler (void)
+{
+	EXTI->PR=4;
+
+}
+void EXTI3_IRQHandler (void)
+{
+	EXTI->PR=8;
+
+}
+void EXTI4_IRQHandler (void)
+{
+	EXTI->PR=16;
+
+}
+
