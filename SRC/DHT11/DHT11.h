@@ -45,7 +45,7 @@ void DHT11_vidStartReading();
  *  @return the reading status
  */ 
  
-uint8_t DHT11_u8ReadingStatus();
+uint8 DHT11_u8ReadingStatus();
 
 /** @brief  Read the value of the last read sensor values
  *  
@@ -63,7 +63,7 @@ DHT11_Data_t DHT11_D11GetData(void);
  *  @param  
  *  @return The last read temperature value
  */ 
-uint16_t DHT11_u16GetTemp(void);
+uint16 DHT11_u16GetTemp(void);
 
 /** @brief  Read the value of the last read humidity value
  *  
@@ -72,6 +72,6 @@ uint16_t DHT11_u16GetTemp(void);
  *  @param  
  *  @return The last read humidity value
  */ 
-uint16_t DHT11_u16GetHumid(void);
-
+uint16 DHT11_u16GetHumid(void);
+void DHT11_vidMainfunc(void);
 #endif /* DHT11_H_ */
