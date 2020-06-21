@@ -1,0 +1,214 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.29.0.0
+Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: alaa abdah, -, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.29.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.29.0.0
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.7.0
+Dialog DLL:      TCM.DLL V1.36.5.0
+ 
+<h2>Project:</h2>
+F:\Career\ITI\ITI wireless track 2019 Ismailia\agriculture smart system\ESP\esp.uvprojx
+Project File Date:  06/20/2020
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+compiling Scheduler.c...
+UART.h(98): warning:  #1295-D: Deprecated declaration USART1_vidEnavble - give arg types
+  void USART1_vidEnavble();
+UART.h(100): warning:  #1295-D: Deprecated declaration USART1_vidDisable - give arg types
+  void USART1_vidDisable();
+UART.h(133): warning:  #1295-D: Deprecated declaration UART_vidEndReciption - give arg types
+  void UART_vidEndReciption();
+ESP8266.h(84): warning:  #1295-D: Deprecated declaration wifiMainFunctuion - give arg types
+  void wifiMainFunctuion ();
+ESP8266.h(94): warning:  #1295-D: Deprecated declaration ESP8266_Init - give arg types
+  uint8_t ESP8266_Init();
+ESP8266.h(108): warning:  #1295-D: Deprecated declaration ESP8266_u8CheckStatues - give arg types
+  enum  ESP_STATUS ESP8266_u8CheckStatues ();
+ESP8266.h(125): warning:  #1295-D: Deprecated declaration ESP_vidJoinNetwork - give arg types
+  uint8_t ESP_vidJoinNetwork ();
+ESP8266.h(132): warning:  #1295-D: Deprecated declaration ESP_vidCheckForIP - give arg types
+  uint8_t ESP_vidCheckForIP();
+ESP8266.h(154): warning:  #1295-D: Deprecated declaration ESP8266_u8CreateServer - give arg types
+  uint8_t ESP8266_u8CreateServer( );
+ESP8266.h(161): warning:  #1295-D: Deprecated declaration ESP8266_u8CheckForConnectionRequest - give arg types
+  uint8_t ESP8266_u8CheckForConnectionRequest();
+ESP8266.h(170): warning:  #1295-D: Deprecated declaration ESP8266_u8ConnectToHost - give arg types
+  uint8_t ESP8266_u8ConnectToHost();
+ESP8266.h(181): warning:  #1295-D: Deprecated declaration ESP8266_u8SendGETDataToOpendConnection - give arg types
+  uint8_t ESP8266_u8SendGETDataToOpendConnection();
+ESP8266.h(189): warning:  #1295-D: Deprecated declaration ESP8266_vidCloseConnection - give arg types
+  uint8_t ESP8266_vidCloseConnection();
+ESP8266.h(198): warning:  #1295-D: Deprecated declaration ESP8266_Example - give arg types
+  uint8_t ESP8266_Example();
+Scheduler.c(24): warning:  #144-D: a value of type "uint8_t (*)()" cannot be used to initialize an entity of type "void (*)(void)"
+   TaskType  TaskArray[] ={{100,0,ESP8266_Example}} ;
+Scheduler.c: 15 warnings, 0 errors
+compiling main.c...
+UART.h(98): warning:  #1295-D: Deprecated declaration USART1_vidEnavble - give arg types
+  void USART1_vidEnavble();
+UART.h(100): warning:  #1295-D: Deprecated declaration USART1_vidDisable - give arg types
+  void USART1_vidDisable();
+UART.h(133): warning:  #1295-D: Deprecated declaration UART_vidEndReciption - give arg types
+  void UART_vidEndReciption();
+ESP8266.h(84): warning:  #1295-D: Deprecated declaration wifiMainFunctuion - give arg types
+  void wifiMainFunctuion ();
+ESP8266.h(94): warning:  #1295-D: Deprecated declaration ESP8266_Init - give arg types
+  uint8_t ESP8266_Init();
+ESP8266.h(108): warning:  #1295-D: Deprecated declaration ESP8266_u8CheckStatues - give arg types
+  enum  ESP_STATUS ESP8266_u8CheckStatues ();
+ESP8266.h(125): warning:  #1295-D: Deprecated declaration ESP_vidJoinNetwork - give arg types
+  uint8_t ESP_vidJoinNetwork ();
+ESP8266.h(132): warning:  #1295-D: Deprecated declaration ESP_vidCheckForIP - give arg types
+  uint8_t ESP_vidCheckForIP();
+ESP8266.h(154): warning:  #1295-D: Deprecated declaration ESP8266_u8CreateServer - give arg types
+  uint8_t ESP8266_u8CreateServer( );
+ESP8266.h(161): warning:  #1295-D: Deprecated declaration ESP8266_u8CheckForConnectionRequest - give arg types
+  uint8_t ESP8266_u8CheckForConnectionRequest();
+ESP8266.h(170): warning:  #1295-D: Deprecated declaration ESP8266_u8ConnectToHost - give arg types
+  uint8_t ESP8266_u8ConnectToHost();
+ESP8266.h(181): warning:  #1295-D: Deprecated declaration ESP8266_u8SendGETDataToOpendConnection - give arg types
+  uint8_t ESP8266_u8SendGETDataToOpendConnection();
+ESP8266.h(189): warning:  #1295-D: Deprecated declaration ESP8266_vidCloseConnection - give arg types
+  uint8_t ESP8266_vidCloseConnection();
+ESP8266.h(198): warning:  #1295-D: Deprecated declaration ESP8266_Example - give arg types
+  uint8_t ESP8266_Example();
+main.c(60): warning:  #223-D: function "setSensorData" declared implicitly
+  	setSensorData("80.6" ,"61.4","9.2","14.7");
+main.c(76): warning:  #111-D: statement is unreachable
+  return 0;
+main.c: 16 warnings, 0 errors
+compiling GPIO.c...
+compiling ESP8266.c...
+UART.h(98): warning:  #1295-D: Deprecated declaration USART1_vidEnavble - give arg types
+  void USART1_vidEnavble();
+UART.h(100): warning:  #1295-D: Deprecated declaration USART1_vidDisable - give arg types
+  void USART1_vidDisable();
+UART.h(133): warning:  #1295-D: Deprecated declaration UART_vidEndReciption - give arg types
+  void UART_vidEndReciption();
+ESP8266.h(84): warning:  #1295-D: Deprecated declaration wifiMainFunctuion - give arg types
+  void wifiMainFunctuion ();
+ESP8266.h(94): warning:  #1295-D: Deprecated declaration ESP8266_Init - give arg types
+  uint8_t ESP8266_Init();
+ESP8266.h(108): warning:  #1295-D: Deprecated declaration ESP8266_u8CheckStatues - give arg types
+  enum  ESP_STATUS ESP8266_u8CheckStatues ();
+ESP8266.h(125): warning:  #1295-D: Deprecated declaration ESP_vidJoinNetwork - give arg types
+  uint8_t ESP_vidJoinNetwork ();
+ESP8266.h(132): warning:  #1295-D: Deprecated declaration ESP_vidCheckForIP - give arg types
+  uint8_t ESP_vidCheckForIP();
+ESP8266.h(154): warning:  #1295-D: Deprecated declaration ESP8266_u8CreateServer - give arg types
+  uint8_t ESP8266_u8CreateServer( );
+ESP8266.h(161): warning:  #1295-D: Deprecated declaration ESP8266_u8CheckForConnectionRequest - give arg types
+  uint8_t ESP8266_u8CheckForConnectionRequest();
+ESP8266.h(170): warning:  #1295-D: Deprecated declaration ESP8266_u8ConnectToHost - give arg types
+  uint8_t ESP8266_u8ConnectToHost();
+ESP8266.h(181): warning:  #1295-D: Deprecated declaration ESP8266_u8SendGETDataToOpendConnection - give arg types
+  uint8_t ESP8266_u8SendGETDataToOpendConnection();
+ESP8266.h(189): warning:  #1295-D: Deprecated declaration ESP8266_vidCloseConnection - give arg types
+  uint8_t ESP8266_vidCloseConnection();
+ESP8266.h(198): warning:  #1295-D: Deprecated declaration ESP8266_Example - give arg types
+  uint8_t ESP8266_Example();
+ESP8266.c(93): warning:  #111-D: statement is unreachable
+  			break;
+ESP8266.c(98): warning:  #188-D: enumerated type mixed with another type
+  			return NotConnected;
+ESP8266.c(99): warning:  #111-D: statement is unreachable
+  			break;
+ESP8266.c(104): warning:  #188-D: enumerated type mixed with another type
+  	return Wait;
+ESP8266.c(143): warning:  #111-D: statement is unreachable
+  			break;
+ESP8266.c(149): warning:  #111-D: statement is unreachable
+  			break;
+ESP8266.c(340): warning:  #111-D: statement is unreachable
+  			break;
+ESP8266.c(402): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  	copyString(ATCommand,param.ConnectionType);
+ESP8266.c(404): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  	copyString(ATCommand,param.host);
+ESP8266.c(418): warning:  #111-D: statement is unreachable
+  		break;
+ESP8266.c(422): warning:  #111-D: statement is unreachable
+  		break;
+ESP8266.c(485): warning:  #111-D: statement is unreachable
+  		break;
+ESP8266.c(493): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		copyString(command,"AT+CWMODE=");
+ESP8266.c(494): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		copyString(command,intToString(param.mode));
+ESP8266.c(495): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		copyString(command,"\r\n");
+ESP8266.c(496): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		ESP8266_vidSendCommand(command);
+ESP8266.c(507): warning:  #111-D: statement is unreachable
+  		break;
+ESP8266.c(511): warning:  #111-D: statement is unreachable
+  		break;
+ESP8266.c(527): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		copyString( ATCommand, "AT+RST\r\n");
+ESP8266.c(528): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		ESP8266_vidSendCommand(ATCommand);
+ESP8266.c: 34 warnings, 0 errors
+compiling TIMER.c...
+assembling startup_stm32f10x_md.s...
+compiling UART.c...
+UART.h(98): warning:  #1295-D: Deprecated declaration USART1_vidEnavble - give arg types
+  void USART1_vidEnavble();
+UART.h(100): warning:  #1295-D: Deprecated declaration USART1_vidDisable - give arg types
+  void USART1_vidDisable();
+UART.h(133): warning:  #1295-D: Deprecated declaration UART_vidEndReciption - give arg types
+  void UART_vidEndReciption();
+UART.c: 3 warnings, 0 errors
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=4624 RO-data=268 RW-data=468 ZI-data=2052  
+".\Objects\esp.axf" - 0 Error(s), 68 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.6.0.pack
+                ARM.CMSIS.5.6.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.3.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
+                Keil.STM32F1xx_DFP.2.3.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\Device\STM32F103C8
+  .\RTE\_Target_1
+  C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include
+  C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.3.0
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>
