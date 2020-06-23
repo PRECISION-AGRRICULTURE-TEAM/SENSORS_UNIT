@@ -1,0 +1,110 @@
+Dependencies for Project 'ESPBUG', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
+F (.\main.c)(0x5EF13ADD)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (SRC/COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC/SCHEDULER/SCHEDULER.h)(0x5EF0D226)
+I (SRC/SCHEDULER/SCHEDULER_CFG.h)(0x5EDA4502)
+I (SRC/GPIO/GPIO.h)(0x5EEE0C1C)
+I (SRC/GPIO/GPIO_CFG.h)(0x5EEFFC2E)
+F (.\SRC\ADC\ADC.c)(0x5EE77AD8)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\adc.o --omf_browse .\objects\adc.crf --depend .\objects\adc.d)
+I (SRC\ADC\ADC_LOCAL.h)(0x5EE77AC4)
+I (SRC\ADC\../COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC\ADC\../COMMON/Utils.h)(0x5EE652A2)
+I (SRC\ADC\ADC_CFG.h)(0x5EE2400C)
+I (SRC\ADC\ADC.h)(0x5EE77A24)
+F (.\SRC\ADC\ADC.h)(0x5EE77A24)()
+F (.\SRC\ADC\ADC_CFG.h)(0x5EE2400C)()
+F (.\SRC\ADC\ADC_LOCAL.h)(0x5EE77AC4)()
+F (.\SRC\APP\APP.c)(0x5EF15128)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\app.o --omf_browse .\objects\app.crf --depend .\objects\app.d)
+I (SRC\APP\APP_LOCAL.h)(0x5EEF55A7)
+I (SRC\APP\../COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC\APP\../COMMON/Utils.h)(0x5EE652A2)
+I (SRC\APP\../DHT11/DHT11.h)(0x5EF1240F)
+I (SRC\APP\../DHT11/DHT11_CFG.h)(0x5EF0C459)
+I (SRC\APP\../MOISTURE/MOISTURE.h)(0x5EF1234E)
+I (SRC\APP\../MOISTURE/MOISTURE_CFG.h)(0x5EE77B26)
+I (SRC\APP\../SOIL_TEMP/SOIL_TEMP.h)(0x5EE4F844)
+I (SRC\APP\../SOIL_TEMP/SOIL_TEMP_CFG.h)(0x5EE4F8EA)
+I (SRC\APP\../ESP8266/ESP8266.h)(0x5EF1726F)
+I (SRC\APP\../ESP8266/Utils.h)(0x5EEC074C)
+I (SRC\APP\../ESP8266/Std_Types.h)(0x5EEC9496)
+I (SRC\APP\../ESP8266/../UART/UART.h)(0x5EF17C91)
+I (SRC\APP\../ESP8266/../UART/UART_CFG.h)(0x5EEF509F)
+I (SRC\APP\APP_CFG.h)(0x5EC2BB31)
+F (.\SRC\APP\APP.h)(0x5EF0D27E)()
+F (.\SRC\APP\APP_CFG.h)(0x5EC2BB31)()
+F (.\SRC\APP\APP_LOCAL.h)(0x5EEF55A7)()
+F (.\SRC\COMMON\Std_Types.h)(0x5ECB3F68)()
+F (.\SRC\COMMON\Utils.h)(0x5EE652A2)()
+F (.\SRC\DHT11\DHT11.c)(0x5EF123EF)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\dht11.o --omf_browse .\objects\dht11.crf --depend .\objects\dht11.d)
+I (SRC\DHT11\DHT11_LOCAL.h)(0x5EEE0010)
+I (SRC\DHT11\../COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC\DHT11\../COMMON/Utils.h)(0x5EE652A2)
+I (SRC\DHT11\DHT11_CFG.h)(0x5EF0C459)
+I (SRC\DHT11\DHT11.h)(0x5EF1240F)
+I (SRC\DHT11\../GPIO/GPIO.h)(0x5EEE0C1C)
+I (SRC\DHT11\../GPIO/GPIO_CFG.h)(0x5EEFFC2E)
+I (SRC\DHT11\../TIMER/TIMER.h)(0x5EEE314C)
+I (SRC\DHT11\../TIMER/TIMER_CFG.h)(0x5EEE2668)
+F (.\SRC\GPIO\GPIO.c)(0x5EF0C5F7)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\gpio.o --omf_browse .\objects\gpio.crf --depend .\objects\gpio.d)
+I (SRC\GPIO\GPIO_LOCAL.h)(0x5EE27260)
+I (SRC\GPIO\../COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC\GPIO\../COMMON/Utils.h)(0x5EE652A2)
+I (SRC\GPIO\GPIO_CFG.h)(0x5EEFFC2E)
+F (.\SRC\MOISTURE\MOISTURE.c)(0x5EF12332)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\moisture.o --omf_browse .\objects\moisture.crf --depend .\objects\moisture.d)
+I (SRC\MOISTURE\MOISTURE_LOCAL.h)(0x5EE77A96)
+I (SRC\MOISTURE\../COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC\MOISTURE\../COMMON/Utils.h)(0x5EE652A2)
+I (SRC\MOISTURE\MOISTURE_CFG.h)(0x5EE77B26)
+I (SRC\MOISTURE\../ADC/ADC.h)(0x5EE77A24)
+I (SRC\MOISTURE\../GPIO/GPIO.h)(0x5EEE0C1C)
+I (SRC\MOISTURE\../GPIO/GPIO_CFG.h)(0x5EEFFC2E)
+F (.\SRC\SCHEDULER\SCHEDULER.c)(0x5EF191B5)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\scheduler.o --omf_browse .\objects\scheduler.crf --depend .\objects\scheduler.d)
+I (SRC\SCHEDULER\SCHEDULER_LOCAL.h)(0x5EEF5ADE)
+I (SRC\SCHEDULER\../COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC\SCHEDULER\../COMMON/Utils.h)(0x5EE652A2)
+I (SRC\SCHEDULER\../TIMER/TIMER.h)(0x5EEE314C)
+I (SRC\SCHEDULER\../TIMER/TIMER_CFG.h)(0x5EEE2668)
+I (SRC\SCHEDULER\../APP/APP.h)(0x5EF0D27E)
+I (SRC\SCHEDULER\../APP/APP_CFG.h)(0x5EC2BB31)
+I (SRC\SCHEDULER\../DHT11/DHT11.h)(0x5EF1240F)
+I (SRC\SCHEDULER\../DHT11/DHT11_CFG.h)(0x5EF0C459)
+I (SRC\SCHEDULER\../GPIO/GPIO.h)(0x5EEE0C1C)
+I (SRC\SCHEDULER\../GPIO/GPIO_CFG.h)(0x5EEFFC2E)
+I (SRC\SCHEDULER\../UART/UART.h)(0x5EF17C91)
+I (SRC\SCHEDULER\../UART/UART_CFG.h)(0x5EEF509F)
+I (SRC\SCHEDULER\../ESP8266/ESP8266.h)(0x5EF1726F)
+I (SRC\SCHEDULER\../ESP8266/Utils.h)(0x5EEC074C)
+I (SRC\SCHEDULER\../ESP8266/Std_Types.h)(0x5EEC9496)
+F (.\SRC\SOIL_TEMP\SOIL_TEMP.c)(0x5EF12226)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\soil_temp.o --omf_browse .\objects\soil_temp.crf --depend .\objects\soil_temp.d)
+I (SRC\SOIL_TEMP\SOIL_TEMP_LOCAL.h)(0x5EE4F8BC)
+I (SRC\SOIL_TEMP\../COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC\SOIL_TEMP\../COMMON/Utils.h)(0x5EE652A2)
+I (SRC\SOIL_TEMP\SOIL_TEMP_CFG.h)(0x5EE4F8EA)
+I (SRC\SOIL_TEMP\../ADC/ADC.h)(0x5EE77A24)
+I (SRC\SOIL_TEMP\../GPIO/GPIO.h)(0x5EEE0C1C)
+I (SRC\SOIL_TEMP\../GPIO/GPIO_CFG.h)(0x5EEFFC2E)
+F (.\SRC\TIMER\TIMER.c)(0x5EF0043D)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
+I (SRC\TIMER\TIMER_Local.h)(0x5EEF4E9A)
+I (SRC\TIMER\../COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC\TIMER\../COMMON/utils.h)(0x5EE652A2)
+I (SRC\TIMER\TIMER_CFG.h)(0x5EEE2668)
+F (.\SRC\UART\UART.c)(0x5EF1898E)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\uart.o --omf_browse .\objects\uart.crf --depend .\objects\uart.d)
+I (SRC\UART\UART_LOCAL.h)(0x5EEF51A6)
+I (SRC\UART\../COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC\UART\../COMMON/Utils.h)(0x5EE652A2)
+I (SRC\UART\UART_CFG.h)(0x5EEF509F)
+I (SRC\UART\UART.h)(0x5EF17C91)
+I (SRC\UART\../GPIO/GPIO.h)(0x5EEE0C1C)
+I (SRC\UART\../GPIO/GPIO_CFG.h)(0x5EEFFC2E)
+F (.\startup_stm32f10x_md.s)(0x58258CCC)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 529" --pd "STM32F10X_MD SETA 1"--list .\listings\startup_stm32f10x_md.lst --xref -o .\objects\startup_stm32f10x_md.o --depend .\objects\startup_stm32f10x_md.d)
+F (.\SRC\ESP8266\ESP8266.c)(0x5EF190F8)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"C:\Users\Alaa Abdah\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DSTM32F10X_MD-o .\objects\esp8266.o --omf_browse .\objects\esp8266.crf --depend .\objects\esp8266.d)
+I (SRC\ESP8266\ESP8266.h)(0x5EF1726F)
+I (SRC\ESP8266\Utils.h)(0x5EEC074C)
+I (SRC\ESP8266\Std_Types.h)(0x5EEC9496)
+I (SRC\ESP8266\../UART/UART.h)(0x5EF17C91)
+I (SRC\ESP8266\../UART/UART_CFG.h)(0x5EEF509F)
+I (SRC\ESP8266\../UART/../COMMON/Std_Types.h)(0x5ECB3F68)
+I (SRC\ESP8266\../UART/../COMMON/Utils.h)(0x5EE652A2)
+I (SRC\ESP8266\../GPIO/GPIO.h)(0x5EEE0C1C)
+I (SRC\ESP8266\../GPIO/GPIO_CFG.h)(0x5EEFFC2E)
